@@ -89,30 +89,56 @@ Integração com dados geográficos do **IBGE** e publicação no **Power BI**.
 
 ---
 
-## 🔒 Anonimização de Dados
 
-### 🛡️ Por que Anonimizar?
+## 📋 Estrutura dos Dados
 
-Este projeto trabalha com dados reais de atendimentos de TI de um órgão público. Para possibilitar o compartilhamento educacional e transparência operacional **sem comprometer a privacidade.**
+Para garantir o funcionamento correto dos scripts de anonimização e do dashboard, o dataset de entrada (`data/all_dti_processed.csv`) deve seguir o esquema abaixo:
 
-### Técnicas Aplicadas
+### Dicionário de Dados
 
-O script `anonimizacao.py` implementa múltiplas camadas de proteção:
+| Coluna | Tipo | Descrição | Exemplo |
+| :--- | :---: | :--- | :--- |
+| `id` | `int` | Identificador único do chamado (GLPI) | `15432` |
+| `data_abertura` | `datetime` | Data e hora de criação do ticket | `2025-03-10 14:30:00` |
+| `status` | `string` | Estado atual do atendimento | `Solucionado` |
+| `categoria` | `string` | Classificação hierárquica do problema | `Hardware > Impressora` |
+| `titulo` | `string` | Assunto resumido do chamado | `Solicitação de Toner` |
+| `descricao` | `string` | Relato detalhado (Alvo principal da anonimização) | `A impressora do setor X apresenta falha...` |
+| `localizacao` | `string` | Cidade ou Unidade solicitante normalizada | `Natal` |
+| `setor_ti` | `string` | Equipe técnica responsável (ex: SAU, Redes) | `SAU` |
+| `requerente` | `string` | Nome do usuário (Será anonimizado) | `Maria Silva` → `USER_a1b2` |
 
-| Tipo de Dado              | Técnica               | Exemplo                                          |
-| ------------------------- | ---------------------- | ------------------------------------------------ |
-| **Nomes**           | Hash MD5 (8 chars)     | `João Silva` → `USER_a3f5b8c1`             |
-| **E-mails**         | Mascaramento           | `user@email.com` → `[EMAIL_REMOVIDO]`       |
-| **Telefones**       | Regex + Replace        | `(84) 99999-9999` → `[TELEFONE_REMOVIDO]`   |
-| **CPFs**            | Pattern matching       | `123.456.789-00` → `[CPF_REMOVIDO]`         |
-| **IPs**             | Mascaramento           | `192.168.0.1` → `[IP_REMOVIDO]`             |
-| **Senhas**          | Detecção heurística | `senha: abc123` → `senha: [SENHA_REMOVIDA]` |
-| **Matrículas**     | Pattern matching       | `Mat. 123.456-7` → `[MATRICULA_REMOVIDA]`   |
-| **Localização**   | Generalização        | `Natal > Depto X` → `Natal`                 |
-| **Termos Internos** | Lista configurável    | `SIGLA_ORGAO` → `[TERMO_INTERNO]`           |
-| **URLs Internas**   | Mascaramento           | `http://sistema.interno` → `[URL_REMOVIDA]` |
 
-📊 Dashboard Power BI
+## 📋 Estrutura dos Dados
+
+Para garantir o funcionamento correto dos scripts de anonimização e do dashboard, o dataset de entrada (`data/all_dti_processed.csv`) deve seguir o esquema abaixo:
+
+### Dicionário de Dados
+
+| Coluna | Tipo | Descrição | Exemplo |
+| :--- | :---: | :--- | :--- |
+| `id` | `int` | Identificador único do chamado (GLPI) | `15432` |
+| `data_abertura` | `datetime` | Data e hora de criação do ticket | `2025-03-10 14:30:00` |
+| `status` | `string` | Estado atual do atendimento | `Solucionado` |
+| `categoria` | `string` | Classificação hierárquica do problema | `Hardware > Impressora` |
+| `titulo` | `string` | Assunto resumido do chamado | `Solicitação de Toner` |
+| `descricao` | `string` | Relato detalhado (Alvo principal da anonimização) | `A impressora do setor X apresenta falha...` |
+| `localizacao` | `string` | Cidade ou Unidade solicitante normalizada | `Natal` |
+| `setor_ti` | `string` | Equipe técnica responsável (ex: SAU, Redes) | `SAU` |
+| `requerente` | `string` | Nome do usuário (Será anonimizado) | `Maria Silva` → `USER_a1b2` |
+
+### 🔎 Visualização de Amostra
+
+Exemplo simplificado de uma linha do dataset processado:
+
+| id | data_abertura | status | categoria | localizacao | setor_ti | requerente (hash) |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| `15432` | `2025-03-10` | `Fechado` | `Hardware` | `Mossoró` | `SAU` | `USER_9f8e7d` |
+
+
+---
+
+## 📊 Dashboard Power BI
 
 ### Métricas Disponíveis
 
