@@ -7,8 +7,9 @@
 
 ## 🎯 Sobre o Projeto
 
-Dashboard interativo desenvolvido para visualizar e analisar atendimentos dos setores de informática da STI - IPRN. O projeto demonstra um pipeline: desde a anonimização até a apresentação web interativa.
+O projeto nasceu de uma necessidade estratégica: estabelecer monitoramento e visualização claros da produtividade e identificar as lacunas existentes no setor de TI.
 
+Anteriormente, a ausência de métricas e visuais dedicados dificultava a percepção de gargalos nos atendimentos de informática. Este Dashboard preenche essa lacuna, fornecendo os insights necessários para aprimorar a gestão do serviço, otimizar recursos e direcionar o planejamento estratégico da STI - IPRN.
 > **⚠️ Nota sobre Privacidade:** Este projeto utiliza dados de órgão público que foram **integralmente anonimizados** para preservar a privacidade de usuários e a confidencialidade institucional. Informações sensíveis como nomes de servidores, dados pessoais (CPF, telefone, e-mail), localização específica de departamentos e termos internos foram removidos ou generalizados antes da publicação.
 
 1. 🔍 O Desafio (O Problema de Negócio)
@@ -108,24 +109,6 @@ Para garantir o funcionamento correto dos scripts de anonimização e do dashboa
 | `setor_ti` | `string` | Equipe técnica responsável (ex: SAU, Redes) | `SAU` |
 | `requerente` | `string` | Nome do usuário (Será anonimizado) | `Maria Silva` → `USER_a1b2` |
 
-
-## 📋 Estrutura dos Dados
-
-Para garantir o funcionamento correto dos scripts de anonimização e do dashboard, o dataset de entrada (`data/all_dti_processed.csv`) deve seguir o esquema abaixo:
-
-### Dicionário de Dados
-
-| Coluna | Tipo | Descrição | Exemplo |
-| :--- | :---: | :--- | :--- |
-| `id` | `int` | Identificador único do chamado (GLPI) | `15432` |
-| `data_abertura` | `datetime` | Data e hora de criação do ticket | `2025-03-10 14:30:00` |
-| `status` | `string` | Estado atual do atendimento | `Solucionado` |
-| `categoria` | `string` | Classificação hierárquica do problema | `Hardware > Impressora` |
-| `titulo` | `string` | Assunto resumido do chamado | `Solicitação de Toner` |
-| `descricao` | `string` | Relato detalhado (Alvo principal da anonimização) | `A impressora do setor X apresenta falha...` |
-| `localizacao` | `string` | Cidade ou Unidade solicitante normalizada | `Natal` |
-| `setor_ti` | `string` | Equipe técnica responsável (ex: SAU, Redes) | `SAU` |
-| `requerente` | `string` | Nome do usuário (Será anonimizado) | `Maria Silva` → `USER_a1b2` |
 
 ### 🔎 Visualização de Amostra
 
