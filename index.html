@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard de Atendimentos DTI - MPRN | Data Palacio</title>
+    <title>Dashboard de Atendimentos STI - IPRN | Data Palacio</title>
     <meta name="description" content="Dashboard de análise de atendimentos desenvolvido por Gustavo Palacio. Transforme dados em insights estratégicos com Power BI, DAX e SQL." />
     <meta name="author" content="Gustavo Palacio" />
     
     <!-- Open Graph para compartilhamento social -->
-    <meta property="og:title" content="Dashboard de Atendimentos DTI - MPRN">
-    <meta property="og:description" content="Painel analítico de atendimentos dos setores de informática da DTI - MPRN">
+    <meta property="og:title" content="Dashboard de Atendimentos STI - IPRN">
+    <meta property="og:description" content="Painel analítico de atendimentos dos setores de informática da STI - IPRN">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://dataPalacio.github.io/ti-data-analysis/">
     
@@ -180,24 +180,74 @@
         <!-- Cabeçalho Simplificado -->
         <section class="mb-16 text-center">
             <h1 class="text-4xl md:text-5xl font-bold text-zinc-900 dark:text-foreground mb-6">
-                Painel Geral de Atendimentos | DTI - MPRN
+                Painel Geral de Atendimentos | STI - IPRN
             </h1>
-            <p class="text-xl text-zinc-600 dark:text-muted-foreground max-w-3xl mx-auto mb-8">
-                Dashboard desenvolvido para tornar visíveis os números de atendimentos dos setores de informática de uma Instituição Público do Rio grande do Norte.
-            </p>
+            <div class="max-w-3xl mx-auto mb-8 space-y-4">
+                <p class="text-xl text-zinc-600 dark:text-muted-foreground">
+                    Dashboard desenvolvido para tornar visíveis os números de atendimentos dos setores de informática de uma Instituição Pública do Rio Grande do Norte.
+                </p>
+                
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 text-yellow-700 dark:text-yellow-400 text-sm font-medium">
+                    <i data-lucide="shield-check" class="h-4 w-4"></i>
+                    <span>Dados reais integralmente anonimizados para fins de portfólio (LGPD)</span>
+                </div>
+            </div>
             
             <div class="flex flex-wrap justify-center gap-4 mb-8">
                 <div class="bg-tech-green/10 text-tech-green dark:text-tech-green px-4 py-2 rounded-full text-sm font-medium">
-                    Power BI
-                </div>
-                <div class="bg-tech-blue/10 text-tech-blue dark:text-tech-blue px-4 py-2 rounded-full text-sm font-medium">
-                    DAX
-                </div>
-                <div class="bg-zinc-200 dark:bg-zinc-700 text-zinc-700 dark:text-zinc-300 px-4 py-2 rounded-full text-sm font-medium">
-                    Power Query
-                </div>
-                <div class="bg-tech-green/10 text-tech-green dark:text-tech-green px-4 py-2 rounded-full text-sm font-medium">
                     Python
+                </div>
+            </div>
+        </section>
+
+        <!-- O Desafio de Negócio -->
+        <section id="desafio" class="mb-16">
+            <div class="bg-white dark:bg-card rounded-xl p-8 border border-zinc-200 dark:border-border shadow-sm">
+                <div class="text-center mb-8">
+                    <h2 class="text-2xl font-bold text-zinc-900 dark:text-foreground mb-4">
+                        🔍 O Desafio de Negócio
+                    </h2>
+                    <p class="text-zinc-600 dark:text-muted-foreground max-w-3xl mx-auto">
+                        O órgão enfrentava desafios na gestão de Chamados de TI, com pouca visibilidade sobre a real demanda de trabalho e distribuição geográfica. O projeto foi guiado por três questões estratégicas:
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="p-4 bg-zinc-50 dark:bg-zinc-900/50 rounded-lg border border-zinc-100 dark:border-zinc-800">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="p-2 bg-tech-green/10 rounded-lg text-tech-green">
+                                <i data-lucide="bar-chart-2" class="h-5 w-5"></i>
+                            </div>
+                            <h3 class="font-semibold text-zinc-900 dark:text-foreground">Priorização Real</h3>
+                        </div>
+                        <p class="text-sm text-zinc-600 dark:text-muted-foreground">
+                            Qual é o setor com o maior volume de atendimentos e qual a prioridade real dos problemas (Pareto)?
+                        </p>
+                    </div>
+
+                    <div class="p-4 bg-zinc-50 dark:bg-zinc-900/50 rounded-lg border border-zinc-100 dark:border-zinc-800">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="p-2 bg-tech-blue/10 rounded-lg text-tech-blue">
+                                <i data-lucide="map" class="h-5 w-5"></i>
+                            </div>
+                            <h3 class="font-semibold text-zinc-900 dark:text-foreground">Custo Logístico</h3>
+                        </div>
+                        <p class="text-sm text-zinc-600 dark:text-muted-foreground">
+                            Quais localidades concentram a demanda, impactando o custo de deslocamento e combustível?
+                        </p>
+                    </div>
+
+                    <div class="p-4 bg-zinc-50 dark:bg-zinc-900/50 rounded-lg border border-zinc-100 dark:border-zinc-800">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="p-2 bg-purple-500/10 rounded-lg text-purple-500">
+                                <i data-lucide="help-circle" class="h-5 w-5"></i>
+                            </div>
+                            <h3 class="font-semibold text-zinc-900 dark:text-foreground">Decisão de Pessoal</h3>
+                        </div>
+                        <p class="text-sm text-zinc-600 dark:text-muted-foreground">
+                            Qual é o problema mais comum de cada setor para subsidiar decisões de investimento e contratação?
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -217,7 +267,7 @@
                     
                     <iframe 
                         class="dashboard-frame" 
-                        src="https://app.powerbi.com/view?r=eyJrIjoiOGY3MWMwMmMtNjU5Zi00ZGQ0LWI3OTctNGE2YmM1MTZlYmEyIiwidCI6ImQxODBiZjJiLTU5MTQtNGRkZC1hMDUyLWZhMmY3MTdmNmY4YyJ9&pageName=c9873c7f2c01913c61bc" 
+                        src="https://app.powerbi.com/view?r=eyJrIjoiOGY3MWMwMmMtNjU5Zi00ZGQ0LWI3OTctNGE2YmM1MTZlYmEyIiwidCI6ImQxODBiZjJiLTU5MTQtNGRkZC1hMDUyLWZhMmY3MTdmNmY4YyJ9" 
                         frameborder="0" 
                         allowFullScreen="true">
                     </iframe>
@@ -229,71 +279,67 @@
         <section id="insights" class="mb-16">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-zinc-900 dark:text-foreground mb-4">
-                    Insights do Painel
+                    🚀 Descobertas e Impacto
                 </h2>
                 <p class="text-lg text-zinc-600 dark:text-muted-foreground max-w-2xl mx-auto">
-                    Principais descobertas e oportunidades identificadas através da análise de dados
+                    A análise revelou gargalos críticos para a gestão de custos e planejamento de RH
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="metric-card">
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Card 1 -->
+                <div class="metric-card border-l-4 border-l-red-500">
                     <div class="flex items-center justify-between mb-4">
-                        <h3 class="font-semibold text-zinc-900 dark:text-foreground">Métricas de Produtividade </h3>
+                        <h3 class="font-semibold text-zinc-900 dark:text-foreground">Risco Operacional (Nível 2)</h3>
+                        <i data-lucide="users" class="h-5 w-5 text-red-500"></i>
+                    </div>
+                    <p class="text-zinc-600 dark:text-muted-foreground text-sm mb-2">
+                        <strong>83% da demanda</strong> depende de estagiários e terceirizados.
+                    </p>
+                    <p class="text-zinc-500 dark:text-zinc-400 text-xs">
+                        Apenas 2 técnicos terceirizados e 6 estagiários cobriram 3007 demandas anuais, gerando alto risco de interrupção em caso de rotatividade.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="metric-card border-l-4 border-l-yellow-500">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="font-semibold text-zinc-900 dark:text-foreground">Gargalo de Licitação</h3>
+                        <i data-lucide="alert-triangle" class="h-5 w-5 text-yellow-500"></i>
+                    </div>
+                    <p class="text-zinc-600 dark:text-muted-foreground text-sm mb-2">
+                        <strong>21% dos chamados</strong> de hardware não resolvidos.
+                    </p>
+                    <p class="text-zinc-500 dark:text-zinc-400 text-xs">
+                        A morosidade no processo de compra de equipamentos trava o SLA do setor SAU, que concentra 62% da demanda.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="metric-card border-l-4 border-l-tech-blue">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="font-semibold text-zinc-900 dark:text-foreground">Foco Geográfico de Custo</h3>
                         <i data-lucide="map-pin" class="h-5 w-5 text-tech-blue"></i>
                     </div>
-                    <p class="text-zinc-600 dark:text-muted-foreground text-sm">
-                        Análise de volume de atendimentos por setor e período.
+                    <p class="text-zinc-600 dark:text-muted-foreground text-sm mb-2">
+                        Concentração em <strong>Natal e Mossoró</strong>.
+                    </p>
+                    <p class="text-zinc-500 dark:text-zinc-400 text-xs">
+                        O mapa de calor evidenciou a necessidade de rever a estratégia de deslocamento para reduzir custos de viagem e combustível.
                     </p>
                 </div>
 
-                <div class="metric-card">
+                <!-- Card 4 -->
+                <div class="metric-card border-l-4 border-l-tech-green">
                     <div class="flex items-center justify-between mb-4">
-                        <h3 class="font-semibold text-zinc-900 dark:text-foreground">Padrões Temporais</h3>
-                        <i data-lucide="calendar" class="h-5 w-5 text-tech-green"></i>
+                        <h3 class="font-semibold text-zinc-900 dark:text-foreground">Oportunidade de Outsourcing</h3>
+                        <i data-lucide="printer" class="h-5 w-5 text-tech-green"></i>
                     </div>
-                    <p class="text-zinc-600 dark:text-muted-foreground text-sm">
-                        Padrões Temporais de dias da semana com maior e menor número de chamados.
+                    <p class="text-zinc-600 dark:text-muted-foreground text-sm mb-2">
+                        Alta demanda por <strong>Impressão</strong>.
                     </p>
-                </div>
-
-                <div class="metric-card">
-                    <div class="flex items-center justify-between mb-4">
-                        <h3 class="font-semibold text-zinc-900 dark:text-foreground">Distribuição Geográfica</h3>
-                        <i data-lucide="package" class="h-5 w-5 text-tech-blue"></i>
-                    </div>
-                    <p class="text-zinc-600 dark:text-muted-foreground text-sm">
-                        Visualização de regiões do RN e seus quantitativo de demanda 
-                    </p>
-                </div>
-
-                <div class="metric-card">
-                    <div class="flex items-center justify-between mb-4">
-                        <h3 class="font-semibold text-zinc-900 dark:text-foreground">Demanda por Fila</h3>
-                        <i data-lucide="trending-up" class="h-5 w-5 text-tech-green"></i>
-                    </div>
-                    <p class="text-zinc-600 dark:text-muted-foreground text-sm">
-                        Exibe os números de atendimento por cada fila e setores
-                    </p>
-                </div>
-
-                <div class="metric-card">
-                    <div class="flex items-center justify-between mb-4">
-                        <h3 class="font-semibold text-zinc-900 dark:text-foreground">Análise de Status</h3>
-                        <i data-lucide="users" class="h-5 w-5 text-tech-blue"></i>
-                    </div>
-                    <p class="text-zinc-600 dark:text-muted-foreground text-sm">
-                        Distribuição de atendimentos por status e categorias
-                    </p>
-                </div>
-
-                <div class="metric-card">
-                    <div class="flex items-center justify-between mb-4">
-                        <h3 class="font-semibold text-zinc-900 dark:text-foreground">Performance SLA</h3>
-                        <i data-lucide="zap" class="h-5 w-5 text-tech-green"></i>
-                    </div>
-                    <p class="text-zinc-600 dark:text-muted-foreground text-sm">
-                        Monitoramento de cumprimento de prazos e SLAs
+                    <p class="text-zinc-500 dark:text-zinc-400 text-xs">
+                        Dados sugerem viabilidade econômica para contratação de outsourcing, mitigando dependência de manutenção interna.
                     </p>
                 </div>
             </div>
@@ -304,16 +350,16 @@
             <div class="bg-gradient-to-r from-tech-green/5 to-tech-blue/5 dark:from-tech-green/10 dark:to-tech-blue/10 rounded-xl p-8 border border-zinc-200 dark:border-border">
                 <div class="text-center mb-10">
                     <h2 class="text-3xl font-bold text-zinc-900 dark:text-foreground mb-4">
-                        Abordagem Analítica
+                        Pipeline de Engenharia de Dados
                     </h2>
                     <p class="text-lg text-zinc-600 dark:text-muted-foreground max-w-2xl mx-auto">
-                        Metodologia estruturada para transformar dados brutos em insights estratégicos
+                        Da extração automatizada à visualização: um fluxo focado em eficiência e privacidade
                     </p>
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-8">
                     <div>
-                        <h3 class="text-xl font-semibold text-zinc-900 dark:text-foreground mb-4">Processo de Desenvolvimento</h3>
+                        <h3 class="text-xl font-semibold text-zinc-900 dark:text-foreground mb-4">Fluxo de Dados (ETL)</h3>
                         
                         <div class="space-y-6">
                             <div class="flex gap-4">
@@ -321,9 +367,9 @@
                                     1
                                 </div>
                                 <div>
-                                    <h4 class="font-medium text-zinc-800 dark:text-foreground mb-1">Definição de Objetivos</h4>
+                                    <h4 class="font-medium text-zinc-800 dark:text-foreground mb-1">Extração (Selenium)</h4>
                                     <p class="text-sm text-zinc-600 dark:text-muted-foreground">
-                                        Identificação das questões de negócio e métricas-chave para monitoramento.
+                                        Coleta automatizada de tickets do sistema GLPI via script Python e Selenium.
                                     </p>
                                 </div>
                             </div>
@@ -333,9 +379,9 @@
                                     2
                                 </div>
                                 <div>
-                                    <h4 class="font-medium text-zinc-800 dark:text-foreground mb-1">Preparação de Dados</h4>
+                                    <h4 class="font-medium text-zinc-800 dark:text-foreground mb-1">Tratamento (Pandas)</h4>
                                     <p class="text-sm text-zinc-600 dark:text-muted-foreground">
-                                        Coleta, limpeza e transformação de dados de múltiplas fontes.
+                                        Limpeza, normalização de datas/cidades e estruturação dos dados brutos.
                                     </p>
                                 </div>
                             </div>
@@ -345,9 +391,9 @@
                                     3
                                 </div>
                                 <div>
-                                    <h4 class="font-medium text-zinc-800 dark:text-foreground mb-1">Modelagem e Análise</h4>
+                                    <h4 class="font-medium text-zinc-800 dark:text-foreground mb-1">Anonimização (LGPD)</h4>
                                     <p class="text-sm text-zinc-600 dark:text-muted-foreground">
-                                        Criação de modelo dimensional e desenvolvimento de métricas com DAX.
+                                        Aplicação de hash em IDs e remoção de dados sensíveis para garantir privacidade.
                                     </p>
                                 </div>
                             </div>
@@ -357,9 +403,9 @@
                                     4
                                 </div>
                                 <div>
-                                    <h4 class="font-medium text-zinc-800 dark:text-foreground mb-1">Visualização e Storytelling</h4>
+                                    <h4 class="font-medium text-zinc-800 dark:text-foreground mb-1">Visualização (Power BI)</h4>
                                     <p class="text-sm text-zinc-600 dark:text-muted-foreground">
-                                        Desenvolvimento de visualizações que contam a história dos dados de forma clara.
+                                        Modelagem Star Schema e criação de métricas DAX para análise interativa.
                                     </p>
                                 </div>
                             </div>
@@ -367,54 +413,46 @@
                     </div>
                     
                     <div>
-                        <h3 class="text-xl font-semibold text-zinc-900 dark:text-foreground mb-4">Tecnologias Utilizadas</h3>
+                        <h3 class="text-xl font-semibold text-zinc-900 dark:text-foreground mb-4">Stack Tecnológica</h3>
                         
                         <div class="space-y-4">
                             <div class="flex items-center justify-between p-3 bg-white dark:bg-card rounded-lg border border-zinc-200 dark:border-border">
                                 <div class="flex items-center gap-3">
-                                    <i data-lucide="bar-chart" class="h-5 w-5 text-tech-green"></i>
-                                    <span class="font-medium">Power BI</span>
-                                </div>
-                                <span class="text-sm text-zinc-500">Visualização</span>
-                            </div>
-                            
-                            <div class="flex items-center justify-between p-3 bg-white dark:bg-card rounded-lg border border-zinc-200 dark:border-border">
-                                <div class="flex items-center gap-3">
-                                    <i data-lucide="function-square" class="h-5 w-5 text-tech-blue"></i>
-                                    <span class="font-medium">DAX</span>
-                                </div>
-                                <span class="text-sm text-zinc-500">Métricas</span>
-                            </div>
-                            
-                            <div class="flex items-center justify-between p-3 bg-white dark:bg-card rounded-lg border border-zinc-200 dark:border-border">
-                                <div class="flex items-center gap-3">
-                                    <i data-lucide="database" class="h-5 w-5 text-tech-green"></i>
-                                    <span class="font-medium">Power Query</span>
-                                </div>
-                                <span class="text-sm text-zinc-500">ETL</span>
-                            </div>
-                            
-                            <div class="flex items-center justify-between p-3 bg-white dark:bg-card rounded-lg border border-zinc-200 dark:border-border">
-                                <div class="flex items-center gap-3">
-                                    <i data-lucide="server" class="h-5 w-5 text-tech-blue"></i>
-                                    <span class="font-medium">SQL</span>
-                                </div>
-                                <span class="text-sm text-zinc-500">Consultas</span>
-                            </div>
-
-                            <div class="flex items-center justify-between p-3 bg-white dark:bg-card rounded-lg border border-zinc-200 dark:border-border">
-                                <div class="flex items-center gap-3">
-                                    <i data-lucide="snake" class="h-5 w-5 text-tech-green"></i>
+                                    <i data-lucide="code-2" class="h-5 w-5 text-tech-green"></i>
                                     <span class="font-medium">Python</span>
                                 </div>
-                                <span class="text-sm text-zinc-500">Processamento</span>
+                                <span class="text-sm text-zinc-500">Selenium, Pandas, Regex</span>
+                            </div>
+                            
+                            <div class="flex items-center justify-between p-3 bg-white dark:bg-card rounded-lg border border-zinc-200 dark:border-border">
+                                <div class="flex items-center gap-3">
+                                    <i data-lucide="bar-chart" class="h-5 w-5 text-tech-blue"></i>
+                                    <span class="font-medium">Power BI</span>
+                                </div>
+                                <span class="text-sm text-zinc-500">DAX, Power Query, Modelagem</span>
+                            </div>
+                            
+                            <div class="flex items-center justify-between p-3 bg-white dark:bg-card rounded-lg border border-zinc-200 dark:border-border">
+                                <div class="flex items-center gap-3">
+                                    <i data-lucide="map" class="h-5 w-5 text-tech-green"></i>
+                                    <span class="font-medium">Geoanálise</span>
+                                </div>
+                                <span class="text-sm text-zinc-500">GeoJSON, Mapas de Calor</span>
+                            </div>
+                            
+                            <div class="flex items-center justify-between p-3 bg-white dark:bg-card rounded-lg border border-zinc-200 dark:border-border">
+                                <div class="flex items-center gap-3">
+                                    <i data-lucide="shield" class="h-5 w-5 text-tech-blue"></i>
+                                    <span class="font-medium">Segurança</span>
+                                </div>
+                                <span class="text-sm text-zinc-500">Anonimização de Dados</span>
                             </div>
                         </div>
                         
                         <div class="mt-6 p-4 bg-white dark:bg-card rounded-lg border border-zinc-200 dark:border-border">
-                            <h4 class="font-medium text-zinc-800 dark:text-foreground mb-2">Impacto Gerado</h4>
+                            <h4 class="font-medium text-zinc-800 dark:text-foreground mb-2">Resultado Técnico</h4>
                             <p class="text-sm text-zinc-600 dark:text-muted-foreground">
-                                Este dashboard permitiu uma redução de 60% no tempo de análise e identificou oportunidades que resultaram em um aumento de 15% na eficiência de campanhas de marketing.
+                                A automação do processo eliminou a necessidade de planilhas manuais, garantindo integridade dos dados e permitindo foco total na análise estratégica em vez da coleta operacional.
                             </p>
                         </div>
                     </div>

@@ -1,15 +1,15 @@
 # 📊 Dashboard de Atendimentos STI - IPRN
 
-> Análise de dados de atendimentos de TI com foco em transparência, anonimização e insights estratégicos
+Análise de dados de atendimentos de TI com foco em transparência, anonimização e insights estratégicos
 
-[![Demo](https://img.shields.io/badge/Live-Demo-22c55e?style=for-the-badge)](https://datapalacio.github.io/ti-data-analysis/)
-[![Power BI](https://img.shields.io/badge/Power_BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)](https://app.powerbi.com/view?r=eyJrIjoiOGY3MWMwMmMtNjU5Zi00ZGQ0LWI3OTctNGE2YmM1MTZlYmEyIiwidCI6ImQxODBiZjJiLTU5MTQtNGRkZC1hMDUyLWZhMmY3MTdmNmY4YyJ9)
+[![Demo](https://img.shields.io/badge/Live-Demo-22c55e?style=for-the-badge)](https://datapalacio.github.io/ti-data-analysis/) [![Power BI](https://img.shields.io/badge/Power_BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)](https://app.powerbi.com/view?r=eyJrIjoiOGY3MWMwMmMtNjU5Zi00ZGQ0LWI3OTctNGE2YmM1MTZlYmEyIiwidCI6ImQxODBiZjJiLTU5MTQtNGRkZC1hMDUyLWZhMmY3MTdmNmY4YyJ9)
 
 ## 🎯 Sobre o Projeto
 
 O projeto nasceu de uma necessidade estratégica: estabelecer monitoramento e visualização claros da produtividade e identificar as lacunas existentes no setor de TI.
 
 Anteriormente, a ausência de métricas e visuais dedicados dificultava a percepção de gargalos nos atendimentos de informática. Este Dashboard preenche essa lacuna, fornecendo os insights necessários para aprimorar a gestão do serviço, otimizar recursos e direcionar o planejamento estratégico da STI - IPRN.
+
 > **⚠️ Nota sobre Privacidade:** Este projeto utiliza dados de órgão público que foram **integralmente anonimizados** para preservar a privacidade de usuários e a confidencialidade institucional. Informações sensíveis como nomes de servidores, dados pessoais (CPF, telefone, e-mail), localização específica de departamentos e termos internos foram removidos ou generalizados antes da publicação.
 
 1. 🔍 O Desafio (O Problema de Negócio)
@@ -62,27 +62,37 @@ graph LR
 ```
 
 #### 1. **🔌 Extração de Dados**
+
 Coleta automatizada de tickets do sistema GLPI via **Selenium** e **Python**.
+
 > ⚠️ *Script não publicado por conter credenciais e endpoints internos do órgão*
 
 #### 2. **🧹 Tratamento de Dados**
+
 Processamento com **Pandas** para limpeza, normalização e estruturação.
+
 - Tratamento de valores nulos
 - Padronização de datas e categorias
 - Normalização de nomes de cidades
+- Inputação de colunas
 
 📁 *Implementação similar ao projeto:* [support-tickets-analytics](https://github.com/dataPalacio/support-tickets-analytics/blob/main/scripts/main.py)
 
 #### 3. **🔒 Anonimização**
+
 Execução do [`anonimizacao.py`](notebooks/anonimizacao.py) para proteção de dados sensíveis:
+
 - Hash de identificadores pessoais
 - Mascaramento de contatos e documentos
 - Generalização de localizações
 - Remoção de termos internos do órgão
 
 #### 4. **📊 Visualização**
+
 Integração com dados geográficos do **IBGE** e publicação no **Power BI**.
+
 - Enriquecimento com códigos de municípios
+- Refinamento do tratamento de dados
 - Modelagem dimensional (Star Schema)
 - Dashboard público interativo
 
@@ -90,34 +100,31 @@ Integração com dados geográficos do **IBGE** e publicação no **Power BI**.
 
 ---
 
-
 ## 📋 Estrutura dos Dados
 
 Para garantir o funcionamento correto dos scripts de anonimização e do dashboard, o dataset de entrada (`data/all_dti_processed.csv`) deve seguir o esquema abaixo:
 
 ### Dicionário de Dados
 
-| Coluna | Tipo | Descrição | Exemplo |
-| :--- | :---: | :--- | :--- |
-| `id` | `int` | Identificador único do chamado (GLPI) | `15432` |
-| `data_abertura` | `datetime` | Data e hora de criação do ticket | `2025-03-10 14:30:00` |
-| `status` | `string` | Estado atual do atendimento | `Solucionado` |
-| `categoria` | `string` | Classificação hierárquica do problema | `Hardware > Impressora` |
-| `titulo` | `string` | Assunto resumido do chamado | `Solicitação de Toner` |
-| `descricao` | `string` | Relato detalhado (Alvo principal da anonimização) | `A impressora do setor X apresenta falha...` |
-| `localizacao` | `string` | Cidade ou Unidade solicitante normalizada | `Natal` |
-| `setor_ti` | `string` | Equipe técnica responsável (ex: SAU, Redes) | `SAU` |
-| `requerente` | `string` | Nome do usuário (Será anonimizado) | `Maria Silva` → `USER_a1b2` |
-
+| Coluna            |     Tipo     | Descrição                                         | Exemplo                                        |
+| :---------------- | :----------: | :-------------------------------------------------- | :--------------------------------------------- |
+| `id`            |   `int`   | Identificador único do chamado (GLPI)              | `15432`                                      |
+| `data_abertura` | `datetime` | Data e hora de criação do ticket                  | `2025-03-10 14:30:00`                        |
+| `status`        |  `string`  | Estado atual do atendimento                         | `Solucionado`                                |
+| `categoria`     |  `string`  | Classificação hierárquica do problema            | `Hardware > Impressora`                      |
+| `titulo`        |  `string`  | Assunto resumido do chamado                         | `Solicitação de Toner`                     |
+| `descricao`     |  `string`  | Relato detalhado (Alvo principal da anonimização) | `A impressora do setor X apresenta falha...` |
+| `localizacao`   |  `string`  | Cidade ou Unidade solicitante normalizada           | `Natal`                                      |
+| `setor_ti`      |  `string`  | Equipe técnica responsável (ex: SAU, Redes)       | `SAU`                                        |
+| `requerente`    |  `string`  | Nome do usuário (Será anonimizado)                | `Maria Silva` → `USER_a1b2`               |
 
 ### 🔎 Visualização de Amostra
 
 Exemplo simplificado de uma linha do dataset processado:
 
-| id | data_abertura | status | categoria | localizacao | setor_ti | requerente (hash) |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| `15432` | `2025-03-10` | `Fechado` | `Hardware` | `Mossoró` | `SAU` | `USER_9f8e7d` |
-
+| id        | data_abertura  | status      | categoria    | localizacao  | setor_ti | requerente (hash) |
+| :-------- | :------------- | :---------- | :----------- | :----------- | :------- | :---------------- |
+| `15432` | `2025-03-10` | `Fechado` | `Hardware` | `Mossoró` | `SAU`  | `USER_9f8e7d`   |
 
 ---
 
@@ -177,10 +184,11 @@ python -m http.server 8000
 
 ### Insights Gerados
 
-- **60% de redução** no tempo de análise manual
+- **83%** de demandas atendidados por equipe terceirizadas e estagiários
 - Identificação de **padrões temporais** de demanda
 - **15% de aumento** na eficiência operacional
 - Visualização geográfica de **167 municípios** do RN e **54 atendidos** pelo setor de tecnologia
+- Gargalos de demandas de solicitação de equipamento
 
 ## 🛠️ Stack Técnica
 
